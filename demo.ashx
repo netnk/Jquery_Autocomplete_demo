@@ -6,6 +6,9 @@ using demo;
 
 // Jquery autocomplete text with ashx
 
+public class booklist : IHttpHandler
+    {
+
 demo.sqldb sqldb = new jqcrud_app.sqldb();
 
 public void ProcessRequest(HttpContext context)
@@ -19,7 +22,7 @@ public void ProcessRequest(HttpContext context)
                   context.Response.Write(query_json);
                   break;
               }
-            
-      };
-  };
+      }
+  }
+}
   
