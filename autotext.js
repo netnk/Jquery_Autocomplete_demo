@@ -4,18 +4,24 @@ $(document).ready(function () {
 });
 
 
-
-function search_autotext() {
-    $.ajax({ 
-        url: "demo.ashx",
-        data: { method: "search_autotext" },
-                type: "POST",
-                dataType: "text",
-                success: function (data) { 
-                  var test1 = JSON.parse(data);
-                  $("#search_text").autocomplete({
-                      source: test1
-                     });
+function search_autotext_title() {
+    $("#search_title").autocomplete({
+        source: function (request, response) {
+            $.ajax({
+                url: "booklist.ashx",
+                dataType: "json",
+                data: {
+                    method: "search_autotext_title", term: request.term     
+                },
+                success: function (data) {                   
+                    response($.map(data, function (item) {
+                        return {
+                            value: item      
+                        }
+                    }));
                 }
+            });
+        },
+     
     });
 }
