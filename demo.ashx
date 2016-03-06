@@ -18,7 +18,7 @@ public void ProcessRequest(HttpContext context)
          case "search_autotext":
               {
                   //Here use dataset , can use <list>
-                  string query_json = JsonConvert.SerializeObject(sqldb.sql_query(@" select your sql query string ").Tables[0]);
+                  string query_json = JsonConvert.SerializeObject(sqldb.sql_query(@" your sql query string ").Tables[0]);
                   context.Response.Write(query_json);
                   break;
               }
