@@ -7,7 +7,7 @@ $(document).ready(function () {
 
 function search_autotext() {
     $.ajax({ 
-        url: "booklist.ashx",
+        url: "demo.ashx",
         data: { method: "search_autotext" },
                 type: "POST",
                 dataType: "text",
