@@ -17,10 +17,9 @@ public void ProcessRequest(HttpContext context)
       {
          case "search_autotext":
               {
-                  //Here use dataset , can use <list>
-                  string query_json = JsonConvert.SerializeObject(sqldb.sql_query(@" your sql query string ").Tables[0]);
-                  context.Response.Write(query_json);
-                  break;
+                 var term = context.Request.QueryString["term"];
+                 context.Response.Write(sqldb.sql_query2("select newbook01  from newbook where  newbook01 like '%' + @term+'%'", "newbook01" ,term));  
+                 break;
               }
       }
   }
